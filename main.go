@@ -34,11 +34,11 @@ func create(w http.ResponseWriter, r *http.Request) {
 
 	smtpHost := "smtp.gmail.com"
     smtpPort := 587
-    smtpUsername := ""  // Google e-mail Отправителя
-    smtpPassword := "" //  Пароль из Google пароль и приложения
+    smtpUsername := "kylychbekuuluelaman2002@gmail.com"
+    smtpPassword := "iiboqtigqrqaocmk"
 
-    to := []string{""}// Каму написать
-    from := ""        // От кого письмо
+    to := []string{"kylychbekuuluelaman2003@gmail.com"}
+    from := "kylychbekuuluelaman2002@gmail.com"
     subject := "Эй, я просто проверяю тебя."
     body := "Имя пользователя: "+userName +"\n"+"Номер телефона: "+userNumber
 
@@ -58,7 +58,7 @@ func create(w http.ResponseWriter, r *http.Request) {
     if err != nil {
         fmt.Println("Ошибка отправки электронной почты:", err)
     }
-	fmt.Println("Письмо успешно отправлено!")
+	fmt.Println("письмо успешно отправлено!")
 
 	http.Redirect(w, r, "/", http.StatusFound)
 }
