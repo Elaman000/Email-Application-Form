@@ -6,15 +6,15 @@ import (
 	"net/http"
 	"html/template"
 	"log"
+
+    "github.com/gorilla/mux"
 )
 
 func main() {
-	http.HandleFunc("/", viewHandler)
-	http.HandleFunc("/create", create)
-	err := http.ListenAndServe(":8000",nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+    r := mux.NewRouter()
+	r.HandleFunc("/", viewHandler)
+	r.HandleFunc("/create", create)
+	http.ListenAndServe(":"+os.Getenv("PORT"), r)
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
